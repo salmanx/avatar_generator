@@ -27,13 +27,13 @@ RSpec.describe Gravatar::Renderer do
       expect(
         png.width
       ).to eq(
-        Gravatar::Configuration.size
+        Gravatar::Configuration.image_size
       )
 
       expect(
         png.height
       ).to eq(
-        Gravatar::Configuration.size
+        Gravatar::Configuration.image_size
       )
     end
   end
