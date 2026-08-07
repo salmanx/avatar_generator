@@ -3,22 +3,32 @@
 module Gravatar
   class Avatar
     def initialize(image, identifier:)
-      @image = image
+      @image_data = image
       @identifier = identifier
     end
 
     def image
-      @image ||= Renderer.render(@image)
+      @image ||= Renderer.render(@image_data)
     end
 
     def save(filename = nil)
-      FileUtils.mkdir_p(
-        File.dirname(path)
+      filename ||= self.filename
+      filename = "#{filename}.png" if File.extname(filename).empty?
+
+      raise ArgumentError, "filename must have .png extension" unless File.extname(filename).downcase == ".png"
+
+      file_path = File.join(
+        Configuration.storage_path,
+        filename
       )
 
-      image.save(
-        filename || path
+      FileUtils.mkdir_p(
+        File.dirname(file_path)
       )
+
+      image.save(file_path)
+
+      file_path
     end
 
     def path
