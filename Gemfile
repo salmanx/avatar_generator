@@ -4,10 +4,10 @@ source "https://rubygems.org"
 
 # Specify your gem's dependencies in gravatar.gemspec
 gemspec
+gem "chunky_png"
+gem "rake"
 
-gem "irb"
-gem "rake", "~> 13.0"
-
-gem "rspec", "~> 3.0"
-
-gem "rubocop", "~> 1.21"
+group :development do
+  gem "rspec"
+  gem "rubocop"
+end

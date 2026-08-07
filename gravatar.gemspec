@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version = Gravatar::VERSION
 
   spec.authors = ["Salman Mahmud"]
-  spec.email       = ["salmanmahmud2014@gmail.com"]
+  spec.email = ["salmanmahmud2014@gmail.com"]
 
   spec.summary = "Github style avatar generator for Ruby applications"
   spec.description = <<~DESCRIPTION
