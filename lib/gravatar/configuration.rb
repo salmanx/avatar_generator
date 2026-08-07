@@ -3,16 +3,16 @@
 module Gravatar
   module Configuration
     class << self
-      attr_accessor :size,
+      attr_accessor :image_size,
                     :grid_size,
                     :background,
                     :storage_path,
                     :public_path
 
       def reset!
-        @size = 250
+        @image_size = 250
         @grid_size = 5
-        @background = ChunkyPNG::Color::WHITE
+        @background = "#FFFFFF"
         @storage_path = "public/avatars"
         @public_path = "/avatars"
       end

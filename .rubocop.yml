@@ -26,3 +26,6 @@ Metrics/AbcSize:
 
 Style/Documentation:
   Enabled: false
+
+AllCops:
+  SuggestExtensions: false

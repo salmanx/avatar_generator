@@ -3,20 +3,17 @@
 module Gravatar
   class Renderer
     def self.render(image)
-      size =
-        Configuration.size
+      background = ChunkyPNG::Color.from_hex(image.background)
 
-      png =
-        ChunkyPNG::Image.new(
-          size,
-          size,
-          Configuration.background
-        )
+      png = ChunkyPNG::Image.new(
+        image.image_size,
+        image.image_size,
+        background
+      )
 
-      color =
-        ChunkyPNG::Color.rgb(
-          *image.color
-        )
+      color = ChunkyPNG::Color.rgb(
+        *image.color
+      )
 
       image.pixel_map.each do |rectangle|
         top_left,

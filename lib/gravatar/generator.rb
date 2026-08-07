@@ -2,9 +2,12 @@
 
 module Gravatar
   class Generator
-    def initialize(identifier, size: nil)
+    def initialize(identifier, size: nil, background: nil)
       @identifier = identifier
-      @size = size || Configuration.size
+      @image_size = size || Configuration.image_size
+      @background = background || Configuration.background
+
+      raise ArgumentError, "image size must be at least 5" if @image_size < 5
     end
 
     def call
@@ -25,7 +28,7 @@ module Gravatar
       pixel_map =
         grid.map do |_, index|
           cell =
-            @size / Configuration.grid_size
+            @image_size / Configuration.grid_size
 
           x =
             (index % Configuration.grid_size) * cell
@@ -41,7 +44,9 @@ module Gravatar
 
       Image.new(
         color: color,
-        pixel_map: pixel_map
+        image_size: @image_size,
+        pixel_map: pixel_map,
+        background: @background
       )
     end
 
