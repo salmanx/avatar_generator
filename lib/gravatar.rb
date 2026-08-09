@@ -17,6 +17,12 @@ module Gravatar
   class Error < StandardError; end
 
   class << self
+    attr_reader :configuration
+
+    def configure
+      yield(configuration)
+    end
+
     def generate(identifier, **options)
       image =
         Generator
@@ -28,13 +34,6 @@ module Gravatar
         identifier: identifier
       )
     end
-
-    def configure
-      yield Configuration
-    end
-
-    def configuration
-      Configuration
-    end
   end
+  @configuration = Configuration.new
 end

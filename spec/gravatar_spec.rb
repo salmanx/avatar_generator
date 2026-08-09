@@ -7,7 +7,7 @@ RSpec.describe Gravatar do
     it "returns an Avatar object" do
       avatar =
         Gravatar.generate(
-          "salman@example.com"
+          "jane@example.com"
         )
 
       expect(avatar)
@@ -17,12 +17,12 @@ RSpec.describe Gravatar do
     it "generates same avatar for same identifier" do
       avatar1 =
         Gravatar.generate(
-          "salman@example.com"
+          "jane@example.com"
         )
 
       avatar2 =
         Gravatar.generate(
-          "salman@example.com"
+          "jane@example.com"
         )
 
       expect(
@@ -35,7 +35,7 @@ RSpec.describe Gravatar do
     it "generates different avatars for different identifiers" do
       avatar1 =
         Gravatar.generate(
-          "salman@example.com"
+          "jane@example.com"
         )
 
       avatar2 =

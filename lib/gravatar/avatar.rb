@@ -18,7 +18,7 @@ module Gravatar
       raise ArgumentError, "filename must have .png extension" unless File.extname(filename).downcase == ".png"
 
       file_path = File.join(
-        Configuration.storage_path,
+        Gravatar.configuration.storage_path,
         filename
       )
 
@@ -33,14 +33,14 @@ module Gravatar
 
     def path
       File.join(
-        Configuration.storage_path,
+        Gravatar.configuration.storage_path,
         filename
       )
     end
 
     def url
       File.join(
-        Configuration.public_path,
+        Gravatar.configuration.public_path,
         filename
       )
     end

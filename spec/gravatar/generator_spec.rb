@@ -7,7 +7,7 @@ RSpec.describe Gravatar::Generator do
     subject(:image) do
       described_class
         .new(
-          "salman@example.com"
+          "user@example.com"
         )
         .call
     end

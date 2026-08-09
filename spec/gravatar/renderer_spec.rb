@@ -6,7 +6,7 @@ RSpec.describe Gravatar::Renderer do
   let(:image) do
     Gravatar::Generator
       .new(
-        "salman@example.com"
+        "user@example.com"
       )
       .call
   end
@@ -27,13 +27,13 @@ RSpec.describe Gravatar::Renderer do
       expect(
         png.width
       ).to eq(
-        Gravatar::Configuration.image_size
+        Gravatar.configuration.size
       )
 
       expect(
         png.height
       ).to eq(
-        Gravatar::Configuration.image_size
+        Gravatar.configuration.size
       )
     end
   end

@@ -5,7 +5,7 @@ require "spec_helper"
 RSpec.describe Gravatar::Avatar do
   let(:avatar) do
     Gravatar.generate(
-      "salman@example.com"
+      "user@example.com"
     )
   end
 
