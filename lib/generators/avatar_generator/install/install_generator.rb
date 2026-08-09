@@ -2,7 +2,7 @@
 
 require "rails/generators"
 
-module Gravatar
+module AvatarGenerator
   module Generators
     class InstallGenerator < Rails::Generators::Base
       desc "Creates a Gravatar initializer."
@@ -11,8 +11,8 @@ module Gravatar
 
       def create_initializer
         template(
-          "gravatar.rb",
-          "config/initializers/gravatar.rb"
+          "avatar_generator.rb",
+          "config/initializers/avatar_generator.rb"
         )
       end
     end

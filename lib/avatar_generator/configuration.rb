@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Gravatar
+module AvatarGenerator
   class Configuration
     attr_accessor :size,
                   :background,

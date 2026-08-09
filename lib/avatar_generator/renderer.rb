@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Gravatar
+module AvatarGenerator
   class Renderer
     def self.render(image)
       background = ChunkyPNG::Color.from_hex(image.background)

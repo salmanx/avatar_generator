@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Gravatar
+module AvatarGenerator
   Image = Struct.new(
     :color,
     :pixel_map,

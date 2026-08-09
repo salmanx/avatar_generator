@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "gravatar/version"
+require_relative "avatar_generator/version"
 
 require "digest/md5"
 require "base64"
@@ -8,12 +8,12 @@ require "stringio"
 require "chunky_png"
 require "fileutils"
 
-require_relative "gravatar/configuration"
-require_relative "gravatar/image"
-require_relative "gravatar/generator"
-require_relative "gravatar/renderer"
-require_relative "gravatar/avatar"
-module Gravatar
+require_relative "avatar_generator/configuration"
+require_relative "avatar_generator/image"
+require_relative "avatar_generator/generator"
+require_relative "avatar_generator/renderer"
+require_relative "avatar_generator/avatar"
+module AvatarGenerator
   class Error < StandardError; end
 
   class << self

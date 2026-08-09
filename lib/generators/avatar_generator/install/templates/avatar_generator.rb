@@ -5,7 +5,7 @@
 # You can customize the default settings below.
 # Individual avatars can override these settings when generated.
 
-Gravatar.configure do |config|
+AvatarGenerator.configure do |config|
   # Default avatar size in pixels.
   config.size = 250
 

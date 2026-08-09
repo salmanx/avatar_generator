@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-module Gravatar
+module AvatarGenerator
   class Generator
     GRID_SIZE = 5
     def initialize(identifier, size: nil, background: nil)
       @identifier = identifier
-      @image_size = size || Gravatar.configuration.size
-      @background = background || Gravatar.configuration.background
+      @image_size = size || AvatarGenerator.configuration.size
+      @background = background || AvatarGenerator.configuration.background
 
       raise ArgumentError, "image size must be at least 5" if @image_size < 5
     end
