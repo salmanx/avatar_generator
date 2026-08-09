@@ -15,7 +15,7 @@ AvatarGenerator.generate("email@example.com")
 - Different identifiers generate different avatars
 - Custom image size
 - Custom background color
-- PNG output
+- **PNG** output
 - Save generated avatars to the filesystem
 - Base64 and Data URL output
 - IO and binary blob access
@@ -68,7 +68,7 @@ avatar.save
 
 ```
 
-You can also provide your own filename: `avatar.save("your_email")`
+You can also provide your own filename: `avatar.save("your name")`. It will use `your_name.png`.
 
 The default storage directory is: `public/avatars`
 
@@ -142,9 +142,9 @@ AvatarGenerator can be used as a simple avatar generator in Rails applications. 
 
 ```ruby
 class  User < ApplicationRecord
-	def  avatar
-		AvatarGenerator.generate(email)
-	end
+  def avatar
+	AvatarGenerator.generate(email)
+  end
 end
 ```
 
@@ -152,7 +152,7 @@ Then in a Rails view:
 
 ```erb
  <%= image_tag user.avatar.url %>
-# or
+ # or
  <img  src="<%=  AvatarGenerator.generate(user.user_name).data_url  %>">
 ```
 
@@ -166,17 +166,17 @@ If you run `rails generate avatar_generator:install` it will give you a configur
 
 ```ruby
 AvatarGenerator.configure  do |config|
-    config.size = 500
-    config.background = "#FFFFFF"
-    config.storage_path = "public/avatars"
-    config.public_path = "/avatars"
+  config.size = 500
+  config.background = "#FFFFFF"
+  config.storage_path = "public/avatars"
+  config.public_path = "/avatars"
 end
 ```
 
 Individual avatars can override configured defaults:
 
 ```ruby
-AvatarGenerator.generate("email@example.com", size:  500,background:  "#000000")
+AvatarGenerator.generate("user_name", size:  500,background:  "#000000")
 ```
 
 ## Testing

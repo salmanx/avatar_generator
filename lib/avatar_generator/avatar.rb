@@ -13,9 +13,7 @@ module AvatarGenerator
 
     def save(filename = nil)
       filename ||= self.filename
-      filename = "#{filename}.png" if File.extname(filename).empty?
-
-      raise ArgumentError, "filename must have .png extension" unless File.extname(filename).downcase == ".png"
+      filename = sanitize_filename(filename)
 
       file_path = File.join(
         AvatarGenerator.configuration.storage_path,
@@ -71,6 +69,18 @@ module AvatarGenerator
       Digest::MD5.hexdigest(
         @identifier.downcase.strip
       )
+    end
+
+    def sanitize_filename(filename)
+      name = File.basename(filename.to_s, File.extname(filename))
+
+      name = name.gsub(/\s+/, "_")
+      name = name.gsub(/[^a-zA-Z0-9_]/, "")
+      name = "#{name}.png"
+
+      raise ArgumentError, "filename cannot be empty" if name == ".png"
+
+      name
     end
   end
 end
