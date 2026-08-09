@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-RSpec.describe Gravatar::Generator do
+RSpec.describe AvatarGenerator::Generator do
   describe "#call" do
     subject(:image) do
       described_class
         .new(
-          "salman@example.com"
+          "user@example.com"
         )
         .call
     end
@@ -15,7 +15,7 @@ RSpec.describe Gravatar::Generator do
     it "returns Image object" do
       expect(image)
         .to be_a(
-          Gravatar::Image
+          AvatarGenerator::Image
         )
     end
 

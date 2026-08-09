@@ -8,6 +8,7 @@ gem "chunky_png"
 gem "rake"
 
 group :development do
+  gem "rails"
   gem "rspec"
   gem "rubocop"
 end

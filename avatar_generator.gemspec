@@ -1,33 +1,33 @@
 # frozen_string_literal: true
 
-require_relative "lib/gravatar/version"
+require_relative "lib/avatar_generator/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "gravatar"
-  spec.version = Gravatar::VERSION
+  spec.name = "avatar_generator"
+  spec.version = AvatarGenerator::VERSION
 
   spec.authors = ["Salman Mahmud"]
   spec.email = ["salmanmahmud2014@gmail.com"]
 
   spec.summary = "Github style avatar generator for Ruby applications"
   spec.description = <<~DESCRIPTION
-    gravatar.rb is a github style avatar generator for Ruby applications.
+    avatar_generator is a github style deterministic avatar generator for Ruby applications.
     It generates unique, consistent avatars from identifiers such as
     usernames, email addresses, or other unique values. The same identifier
     always produces the same avatar.
   DESCRIPTION
 
-  spec.homepage = "https://github.com/salmanx/gravatar.rb"
+  spec.homepage = "https://github.com/salmanx/avatar_generator"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.7.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] =
-    "https://github.com/salmanx/gravatar.rb"
+    "https://github.com/salmanx/avatar_generator"
   spec.metadata["changelog_uri"] =
-    "https://github.com/salmanx/gravatar.rb/releases"
+    "https://github.com/salmanx/avatar_generator/releases"
   spec.metadata["bug_tracker_uri"] =
-    "https://github.com/salmanx/gravatar.rb/issues"
+    "https://github.com/salmanx/avatar_generator/issues"
   spec.metadata["rubygems_mfa_required"] = "true"
 
   gemspec = File.basename(__FILE__)
@@ -39,6 +39,7 @@ Gem::Specification.new do |spec|
   ) do |ls|
     ls.readlines("\x0", chomp: true).reject do |file|
       file == gemspec ||
+        file.end_with?(".gem") ||
         file.start_with?(
           *%w[
             bin/

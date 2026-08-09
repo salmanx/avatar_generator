@@ -2,11 +2,11 @@
 
 require "spec_helper"
 
-RSpec.describe Gravatar::Renderer do
+RSpec.describe AvatarGenerator::Renderer do
   let(:image) do
-    Gravatar::Generator
+    AvatarGenerator::Generator
       .new(
-        "salman@example.com"
+        "user@example.com"
       )
       .call
   end
@@ -27,13 +27,13 @@ RSpec.describe Gravatar::Renderer do
       expect(
         png.width
       ).to eq(
-        Gravatar::Configuration.image_size
+        AvatarGenerator.configuration.size
       )
 
       expect(
         png.height
       ).to eq(
-        Gravatar::Configuration.image_size
+        AvatarGenerator.configuration.size
       )
     end
   end

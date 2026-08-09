@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
-module Gravatar
+module AvatarGenerator
   class Generator
+    GRID_SIZE = 5
     def initialize(identifier, size: nil, background: nil)
       @identifier = identifier
-      @image_size = size || Configuration.image_size
-      @background = background || Configuration.background
+      @image_size = size || AvatarGenerator.configuration.size
+      @background = background || AvatarGenerator.configuration.background
 
       raise ArgumentError, "image size must be at least 5" if @image_size < 5
     end
@@ -28,13 +29,13 @@ module Gravatar
       pixel_map =
         grid.map do |_, index|
           cell =
-            @image_size / Configuration.grid_size
+            @image_size / GRID_SIZE
 
           x =
-            (index % Configuration.grid_size) * cell
+            (index % GRID_SIZE) * cell
 
           y =
-            (index / Configuration.grid_size) * cell
+            (index / GRID_SIZE) * cell
 
           [
             [x, y],

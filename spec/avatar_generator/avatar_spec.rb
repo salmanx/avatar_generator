@@ -2,10 +2,10 @@
 
 require "spec_helper"
 
-RSpec.describe Gravatar::Avatar do
+RSpec.describe AvatarGenerator::Avatar do
   let(:avatar) do
-    Gravatar.generate(
-      "salman@example.com"
+    AvatarGenerator.generate(
+      "user@example.com"
     )
   end
 
