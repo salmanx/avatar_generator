@@ -30,33 +30,16 @@ Gem::Specification.new do |spec|
     "https://github.com/salmanx/avatar_generator/issues"
   spec.metadata["rubygems_mfa_required"] = "true"
 
-  gemspec = File.basename(__FILE__)
-
-  spec.files = IO.popen(
-    %w[git ls-files -z],
-    chdir: __dir__,
-    err: IO::NULL
-  ) do |ls|
-    ls.readlines("\x0", chomp: true).reject do |file|
-      file == gemspec ||
-        file.end_with?(".gem") ||
-        file.start_with?(
-          *%w[
-            bin/
-            Gemfile
-            .gitignore
-            .rspec
-            spec/
-            .github/
-            .rubocop.yml
-          ]
-        )
-    end
-  end
-
-  spec.bindir = "exe"
-  spec.executables = spec.files.grep(%r{\Aexe/}) do |file|
-    File.basename(file)
+  spec.files = Dir.chdir(__dir__) do
+    Dir[
+      "{lib,sig}/**/*",
+      "README.md",
+      "LICENSE.txt",
+      "CHANGELOG.md",
+      "CODE_OF_CONDUCT.md",
+      "*.gemspec",
+      "Rakefile",
+    ]
   end
 
   spec.require_paths = ["lib"]
