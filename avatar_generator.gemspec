@@ -39,6 +39,7 @@ Gem::Specification.new do |spec|
   ) do |ls|
     ls.readlines("\x0", chomp: true).reject do |file|
       file == gemspec ||
+        file.end_with?(".gem") ||
         file.start_with?(
           *%w[
             bin/
